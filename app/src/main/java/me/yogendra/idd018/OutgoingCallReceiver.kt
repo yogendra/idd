@@ -7,8 +7,6 @@ import android.net.Uri
 import android.util.Log
 
 class OutgoingCallReceiver : BroadcastReceiver() {
-    private val prefix = "018";
-    private val skipPrefix = arrayOf(prefix, "+65");
 
     override fun onReceive(context: Context, intent: Intent) {
 
@@ -34,7 +32,7 @@ class OutgoingCallReceiver : BroadcastReceiver() {
     }
 
     private fun dial(phoneNumber: String, context: Context) {
-        val toDial = phoneNumber.replace("+", prefix)
+        val toDial = phoneNumber.replace("+", prefs.prefix)
         Log.d("dialer", "Number to Dial:" + toDial);
 
         resultData = null
@@ -50,7 +48,10 @@ class OutgoingCallReceiver : BroadcastReceiver() {
     }
 
     private fun shouldProcess(phoneNumber: String): Boolean {
-        return skipPrefix.none { phoneNumber.startsWith(it) }
+        Log.d( "dialer", "prefs(enabled:${prefs.enabled}, local:${prefs.local}, prefix:${prefs.prefix}, skipPrefix:${prefs.skipPrefix.joinToString()}}")
+        return prefs.enabled and
+                phoneNumber.startsWith("+") and
+                prefs.skipPrefix.none { phoneNumber.startsWith(it) }
 
 
     }
