@@ -1,3 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.ajoberstar:grgit:1.1.0'
+    }
+}
+
+ext {
+    // Open the Git repository in the current directory.
+    git = org.ajoberstar.grgit.Grgit.open(rootProject.rootDir)
+
+    // Get commit id of HEAD.
+    revision = git.head().id
+    // Alternative is using abbreviatedId of head() method.
+    // revision = git.head().abbreviatedId
+}
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -14,7 +34,7 @@ android {
         config {
             keyAlias keystore['keyAlias']
             keyPassword keystore['keyPassword']
-            storeFile file( keystore['storeFile'])
+            storeFile file(keystore['storeFile'])
             storePassword keystore['storePassword']
         }
     }
@@ -26,12 +46,20 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "$applicationId-v $versionName.$versionCode-" + git.head().abbreviatedId)
+        versionNameSuffix '.DEBUG'
     }
     buildTypes {
         release {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+            versionNameSuffix ".RELEASE"
         }
+        debug {
+            versionNameSuffix ".SNAPSHOT"
+        }
+    }
+    productFlavors {
     }
 }
 
