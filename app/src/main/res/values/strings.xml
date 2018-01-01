@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IDD Dialer</string>
+    <string name="title_activity_dialer">018 Dialer</string>
+    <string name="app_help">Goto your contact book and try to dial a number. It will automatically be prefixed with 018</string>
+</resources>
