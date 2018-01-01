@@ -1,0 +1,28 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SwitchPreference
+        android:defaultValue="@bool/prefs_default_enabled"
+        android:key="enabled"
+        android:title="@string/prefs_title_enabled"
+        android:summary="@string/prefs_summary_enabled"
+        android:tooltipText="@string/prefs_summary_enabled"
+        />
+    <EditTextPreference
+        android:defaultValue="@string/prefs_default_prefix"
+        android:key="prefix"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/prefs_title_prefix"
+        android:tooltipText="@string/prefs_summary_prefix"
+        android:summary="@string/prefs_summary_prefix"/>
+    <EditTextPreference
+        android:defaultValue="@string/prefs_default_local"
+        android:key="local"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/prefs_title_local"
+        android:tooltipText="@string/prefs_summary_local"
+        android:summary="@string/prefs_summary_local"/>
+</PreferenceScreen>

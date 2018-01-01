@@ -2,4 +2,24 @@
     <string name="app_name">IDD Dialer</string>
     <string name="title_activity_dialer">018 Dialer</string>
     <string name="app_help">Goto your contact book and try to dial a number. It will automatically be prefixed with 018</string>
+    <string name="prefix_help">Enter replacement prefix</string>
+    <string name="local_help">Local ISD Code. Used to skip replacement</string>
+    <string name="enabled_help">Enable replacing \'+\' with prefix on outgoing calls</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="prefs_title_enabled">Enabled</string>
+    <string name="prefs_summary_enabled">Enable Number Replacements</string>
+
+    <string name="prefs_title_prefix">IDD Prefix</string>
+    <string name="prefs_summary_prefix">IDD Prefix to replace with\nCurrent: %s</string>
+    <string name="prefs_default_prefix">018</string>
+
+    <string name="prefs_title_local">Local ISD Code</string>
+    <string name="prefs_summary_local">Required to skip local phone number from being replaced\nCurrent: %s</string>
+    <string name="prefs_default_local">65</string>
+
+
+
 </resources>
