@@ -1,23 +1,35 @@
-package me.yogendra.idd018
+package me.yogendra.idd
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.util.Log
+import com.google.firebase.analytics.FirebaseAnalytics
+import android.provider.SyncStateContract.Helpers.update
+import android.util.Base64
+import java.security.MessageDigest
+
 
 class OutgoingCallReceiver : BroadcastReceiver() {
 
+
     override fun onReceive(context: Context, intent: Intent) {
+        val analytics = FirebaseAnalytics.getInstance(context);
 
         val phoneNumber = getPhoneNumber(intent)
 
         if (shouldProcess(phoneNumber)) {
+
+            analytics.logEvent(Analytics.EVENT_PREFIXED, params(phoneNumber))
+
             dial(phoneNumber, context)
         } else {
-            Log.d("dialer", "Skip processing phoneNUmber:" + phoneNumber);
+            Log.d("dialer", "Skip processing phoneNumber:" + phoneNumber)
         }
     }
+
 
     private fun getPhoneNumber(intent: Intent): String {
         Log.d("dialer", intent.toString())
@@ -54,6 +66,23 @@ class OutgoingCallReceiver : BroadcastReceiver() {
                 prefs.skipPrefix.none { phoneNumber.startsWith(it) }
 
 
+    }
+
+
+    private fun params(phoneNumber: String): Bundle {
+
+        val params = Bundle()
+        params.putString(Analytics.PARAM_PHONENUMBER_HASH, hash(phoneNumber))
+        return params;
+
+    }
+
+    private fun hash(text:String): String {
+        val md = MessageDigest.getInstance("SHA-1")
+        val textBytes = text.toByteArray(Charsets.UTF_8)
+        md.update(textBytes, 0, textBytes.size)
+        val sha1hash = md.digest()
+        return Base64.encodeToString(sha1hash, Base64.NO_WRAP)
     }
 }
 

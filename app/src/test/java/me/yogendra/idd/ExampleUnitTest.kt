@@ -1,4 +1,4 @@
-package me.yogendra.idd018
+package me.yogendra.idd
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

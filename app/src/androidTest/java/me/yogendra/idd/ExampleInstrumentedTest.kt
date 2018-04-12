@@ -1,4 +1,4 @@
-package me.yogendra.idd018
+package me.yogendra.idd
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

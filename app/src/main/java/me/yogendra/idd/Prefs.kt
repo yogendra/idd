@@ -1,4 +1,4 @@
-package me.yogendra.idd018
+package me.yogendra.idd
 
 import android.content.Context
 import android.content.SharedPreferences
