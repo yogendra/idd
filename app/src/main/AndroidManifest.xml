@@ -17,10 +17,21 @@
             android:name=".OutgoingCallReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="1"><!-- General Type -->
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-
+            </intent-filter>
+            <intent-filter android:priority="1"><!-- ZenFone Type1 -->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:priority="1"><!-- ZenFone Type2 -->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter android:priority="1"><!-- ZenFone Type3 -->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
             </intent-filter>
         </receiver>
 
