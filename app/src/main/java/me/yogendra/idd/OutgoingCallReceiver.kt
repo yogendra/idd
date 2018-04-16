@@ -22,7 +22,7 @@ class OutgoingCallReceiver : BroadcastReceiver() {
 
         if (shouldProcess(phoneNumber)) {
 
-            analytics.logEvent(Analytics.EVENT_PREFIXED, params(phoneNumber))
+            analytics.logEvent(Analytics.EVENT_PREFIXED, Bundle.EMPTY)
 
             dial(phoneNumber, context)
         } else {
@@ -64,25 +64,8 @@ class OutgoingCallReceiver : BroadcastReceiver() {
         return prefs.enabled and
                 phoneNumber.startsWith("+") and
                 prefs.skipPrefix.none { phoneNumber.startsWith(it) }
-
-
     }
 
 
-    private fun params(phoneNumber: String): Bundle {
-
-        val params = Bundle()
-        params.putString(Analytics.PARAM_PHONENUMBER_HASH, hash(phoneNumber))
-        return params;
-
-    }
-
-    private fun hash(text:String): String {
-        val md = MessageDigest.getInstance("SHA-1")
-        val textBytes = text.toByteArray(Charsets.UTF_8)
-        md.update(textBytes, 0, textBytes.size)
-        val sha1hash = md.digest()
-        return Base64.encodeToString(sha1hash, Base64.NO_WRAP)
-    }
 }
 
