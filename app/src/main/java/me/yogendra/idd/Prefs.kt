@@ -21,10 +21,10 @@ class Prefs(context: Context) {
         set(value) = prefs.edit().putBoolean(ENABLED, value).apply()
 
     var prefix: String
-        get() = prefs.getString(PREFIX, "018")
+        get() = prefs.getString(PREFIX, "018")!!
         set(value) = prefs.edit().putString(PREFIX, value).apply()
     var local: String
-        get() = prefs.getString(LOCAL, "65")
+        get() = prefs.getString(LOCAL, "65")!!
         set(value) = prefs.edit().putString(LOCAL, value).apply()
     val skipPrefix
         get() = arrayOf(prefix, "+"+local)
