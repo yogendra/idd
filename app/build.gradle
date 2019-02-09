@@ -47,7 +47,7 @@ android {
         applicationId "me.yogendra.idd"
         minSdkVersion 24
         targetSdkVersion 26
-        versionCode 25
+        versionCode 26
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", "$applicationId-v $versionName.$versionCode-" + git.head().abbreviatedId)
