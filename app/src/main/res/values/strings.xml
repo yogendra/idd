@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">IDD Dialer</string>
+    <string name="app_description">An app to simplify IDD calling</string>
     <string name="title_activity_dialer">018 Dialer</string>
     <string name="app_help">Goto your contact book and try to dial a number. It will automatically be prefixed with 018</string>
     <string name="prefix_help">Enter replacement prefix</string>
     <string name="local_help">Local ISD Code. Used to skip replacement</string>
     <string name="enabled_help">Enable replacing \'+\' with prefix on outgoing calls</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="prefs_title_enabled">Enabled</string>
@@ -16,12 +16,29 @@
     <string name="prefs_summary_prefix">IDD Prefix to replace with\nCurrent: %s</string>
     <string name="prefs_default_prefix">018</string>
 
-    <string name="prefs_title_local">Local ISD Code</string>
+    <string name="prefs_title_local">Local Country Code</string>
     <string name="prefs_summary_local">Required to skip local phone number from being replaced\nCurrent: %s</string>
     <string name="prefs_default_local">65</string>
     <string name="title_activity_idd">IDD</string>
     <string name="action_settings">Settings</string>
     <string name="project_home">https://yogendra.me/projects/idd</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 
 </resources>

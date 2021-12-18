@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <SwitchPreferenceCompat
+    app:defaultValue="@bool/prefs_default_enabled"
+    app:key="enabled"
+    app:title="@string/prefs_title_enabled"
+    app:summary="@string/prefs_summary_enabled"
+    app:tooltipText="@string/prefs_summary_enabled"
+    />
+  <androidx.preference.EditTextPreference
+    app:defaultValue="@string/prefs_default_prefix"
+    app:key="prefix"
+    app:singleLine="true"
+    app:title="@string/prefs_title_prefix"
+    app:tooltipText="@string/prefs_summary_prefix"
+    app:summary="@string/prefs_summary_prefix"/>
+  <androidx.preference.EditTextPreference
+    app:defaultValue="@string/prefs_default_local"
+    app:key="local"
+    app:singleLine="true"
+    app:title="@string/prefs_title_local"
+    app:tooltipText="@string/prefs_summary_local"
+    app:summary="@string/prefs_summary_local"/>
+</androidx.preference.PreferenceScreen>

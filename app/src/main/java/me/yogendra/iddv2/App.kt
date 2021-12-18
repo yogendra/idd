@@ -1,4 +1,4 @@
-package me.yogendra.idd
+package me.yogendra.iddv2
 
 import android.app.Application
 

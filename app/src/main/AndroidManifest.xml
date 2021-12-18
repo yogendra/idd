@@ -1,50 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.yogendra.idd">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    package="me.yogendra.iddv2">
 
     <application
-        android:name=".App"
+        android:name="me.yogendra.iddv2.App"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
-            android:name=".OutgoingCallReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter android:priority="1"><!-- General Type -->
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-            </intent-filter>
-            <intent-filter android:priority="1"><!-- ZenFone Type1 -->
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter android:priority="1"><!-- ZenFone Type2 -->
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-                <data android:scheme="tel" />
-            </intent-filter>
-            <intent-filter android:priority="1"><!-- ZenFone Type3 -->
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="tel" />
-            </intent-filter>
-        </receiver>
-
         <activity
-            android:name=".IDD"
+            android:name="me.yogendra.iddv2.IDDActivity"
             android:label="@string/title_activity_idd"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="me.yogendra.iddv2.IDDRedirectService"
+            android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.telecom.CallRedirectionService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
